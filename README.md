@@ -1,5 +1,7 @@
 # VimCheatSheet
 
+[커서이동](#1.-커서이동)
+
 ## 1. 커서이동
 key | 설명
 :-- | :-
@@ -7,8 +9,8 @@ s | 왼쪽으로 한 칸 이동
 j | 아래로 한 칸 이동
 k | 위로 한 칸 이동
 l | 오른쪽으로 한 칸 이동
-gj | move cursor down (multi-line text)
-gk | move cursor up (multi-line text)
+gj | 아래로 한 칸 이동(한 줄이 길 때)
+gk | 위로 한 칸 이동(한 줄이 길 때)
 H | 현재화면 상단으로 점프
 M | 현재화면 중단으로 점프
 L | 현재화면 하단으로 점프
