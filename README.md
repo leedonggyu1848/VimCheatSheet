@@ -300,8 +300,7 @@ N | 이전 검색항목으로 점프
 ## 14. 여러 파일 검색
 key | 설명
 :-- | :--
-:vim[grep] /pattern/ {\`{file}\`} | 여러 파일에서 패턴 검색
-e.g. :vim[grep] /foo/ **/*
+:vim[grep] /pattern/ {\`{file}\`} | 여러 파일에서 패턴 검색(e.g. :vim[grep] /foo/ **/*)
 :cn[ext] | 다음 검색항목으로 점프
 :cp[revious] | 이전 검색항목으로 점프
 :cope[n] | 일치 목록을 새 창으로 열기
@@ -316,8 +315,8 @@ key | 설명
 <C-wT | 현재 분할 창을 새로운 탭으로 이동
 gt \| :tabn[ext] | 다음 탭으로 이동
 gT \| :tabp[revious] | 이전 탭으로 이동
-#gt | #번째 탭으로 이동
-:tabm[ove] # | 현재 탭을 #번째로 이동
+%dgt | %d번째 탭으로 이동
+:tabm[ove] %d | 현재 탭을 %d번째로 이동
 :tabc[lose] | 현재 탭과 그 안의 창들 닫기
 :tabo[nly] | 현재 탭 이외의 모든 탭 닫기
 :tabdo command | 모든 탭에서 command 실행하기 (예를 들어, :tabdo q - 열린 모든 탭 닫기)
