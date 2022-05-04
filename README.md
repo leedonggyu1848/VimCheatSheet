@@ -381,3 +381,28 @@ dp \| :diffpu[t] | 다른 버퍼로 차이점 보내기
 :dif[fupdate] | 비교모드 새로고침
 :diffo[ff] | 현재 창 비교모드 닫가
 
+## 18. 리펙토링
+
+### lvim
+
+```
+:lvim /{pattern}/[g | j] {files}
+```
+
+위 코드를 명령모드로 실행하면 files에 있는 pattern에 해당하는 변수리스트를 알 수 있다.
+
+```
+:lw
+```
+
+lw를 통해 변수 리스트를 볼 수 있다.
+변수를 어디에 사용했는지 알 수 있다.
+
+### argdo
+
+```
+:args {files}
+:argdo %s/{target}/{dest}/gce | update
+```
+
+target을 dest로 바꿔준다.
