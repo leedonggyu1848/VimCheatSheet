@@ -13,6 +13,7 @@ call vundle#begin()
   Plugin 'Valloric/YouCompleteMe'       "오토컴플릿 (플러그인 설치 후 약간의 설정 필요)
   Plugin 'bad-whitespace'               "문자열 끝 공백 삭제 :EraseBadWhiteSpace
   Plugin 'wesQ3/vim-windowswap'         "레이아웃 유지하고 split창 바꾸기
+  Plugin 'The-NERD-tree'                "파일 탐색기 :NERDTree (i=>horizontal split)
 call vundle#end()            " required
 
 let NERDTreeShowHidden=1
@@ -68,8 +69,6 @@ augroup END
 " <YouCompleteMe> {{
 
 "let g:ycm_confirm_extra_conf = 0
-let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_min_num_of_chars_for_completion = 0
 let g:ycm_auto_trigger = 1
