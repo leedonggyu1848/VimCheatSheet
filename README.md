@@ -1,5 +1,15 @@
 # VimCheatSheet
 
+## ycm 설치방법
+[공식문서](https://github.com/ycm-core/YouCompleteMe#linux-64-bit)
+
+'''shell
+apt install build-essential cmake vim-nox python3-dev
+apt install mono-complete golang nodejs default-jdk npm
+cd ~/.vim/bundle/YouCompleteMe
+python3 install.py --all
+'''
+
 [출처](https://vim.rtorr.com/lang/ko)
 
 \<%d|%c> : %d->숫자 %c->문자 필수적으로 넣어야 함
