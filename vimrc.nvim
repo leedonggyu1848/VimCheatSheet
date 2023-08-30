@@ -1,0 +1,105 @@
+" nvim ~/.config/nvim/init.vim
+"
+":CocInstall coc-rust-analyzer Plug-In 시작 (플러그인 설치 경로)
+call plug#begin('~/.vim/plugged')
+
+" 설치하고 싶은 플러그인 (예, NERDTree)
+Plug 'neoclide/coc.nvim', {'branch': 'release'} "오토컴플릿
+Plug 'nanotech/jellybeans.vim'      "젤리빈
+Plug 'scrooloose/nerdcommenter'     "주석 단축키 \c
+Plug 'bling/vim-airline'            "상태바
+Plug 'terryma/vim-multiple-cursors' "여러 커서 동시 수정 <C-n>
+Plug 'Yggdroot/indentLine'          "들여쓰기 가이드
+Plug 'wesQ3/vim-windowswap'         "레이아웃 유지하고 split창 바꾸기 <leader>ww
+Plug 'preservim/nerdtree'           "디렉토리 트리
+
+call plug#end()
+
+color jellybeans
+set nu
+" 들여쓰기 설정
+set autoindent
+set smartindent
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set smarttab
+set expandtab
+set mouse=a
+
+" edit 자동완성
+set wildmenu
+set path+=*
+
+" clipboard 에도 yark
+set clipboard+=unnamedplus
+
+" <Leader> 키 설정
+let mapleader = ","
+
+"============CoC setting======================
+" <C-y>로 자동완성
+" <C-n>으로 자동완성 후 다음 자동완성으로 이동
+" <C-p>으로 자동완성 후 이전 자동완성으로 이동
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" shorten the message output
+set shortmess+=c
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" provide custom statusline: lightline.vim, vim-airline
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" NERD Commenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" customize keymapping <Leader>키는 현재 ,
+map <Leader>cc <plug>NERDComToggleComment
+map <Leader>c<space> <plug>NERDComComment
+
+" NERD tree
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+" :ter [shell_name] 이후 화면 옮기기 위한 command 설정
+tnoremap <C-w>h <C-\><C-n><C-w>h
+tnoremap <C-w>j <C-\><C-n><C-w>j
+tnoremap <C-w>k <C-\><C-n><C-w>k
+tnoremap <C-w>l <C-\><C-n><C-w>l
+
+" :ter [shell_name] 이후 바로 insert mode로 변경
+autocmd TermOpen * startinsert
+" terminal창으로 옮겨왔을 때 바로 insert mode로 변경
+autocmd BufWinEnter,WinEnter term://* startinsert
+
+" terminal virtual split
+command Terminal vsplit term://zsh
+command Terminalh split term://zsh
+command Terminalv vsplit term://zsh
+
+command TerminalTab tabe term://zsh
